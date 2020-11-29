@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.CR_PAT }}
 
     - name: Build and push
-      users: docker/build-push-action@v2
+      uses: docker/build-push-action@v2
       with:
         context: .
         push: true
