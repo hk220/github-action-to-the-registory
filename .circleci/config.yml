@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build_and_push:
+    docker:
+    - image: docker
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: docker login
+        command: |
+          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+    - run:
+        name: docker build
+        command: |
+          docker build -t ghcr.io/$DOCKER_USER/github-action-to-the-registry-circleci:latest
+    - run:
+        name: docker push
+        command: |
+          docker push ghcr.io/$DOCKER_USER/github-action-to-the-registry-circleci:latest
