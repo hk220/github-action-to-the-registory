@@ -13,7 +13,7 @@ jobs:
     - run:
         name: docker build
         command: |
-          docker build -t ghcr.io/$DOCKER_USER/github-action-to-the-registry-circleci:latest
+          docker build -t ghcr.io/$DOCKER_USER/github-action-to-the-registry-circleci:latest .
     - run:
         name: docker push
         command: |
