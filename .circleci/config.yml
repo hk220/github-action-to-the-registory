@@ -9,7 +9,7 @@ jobs:
     - run:
         name: docker login
         command: |
-          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+          echo "$DOCKER_PASS" | docker login ghcr.io --username $DOCKER_USER --password-stdin
     - run:
         name: docker build
         command: |
